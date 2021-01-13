@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="current_pose_topic" default="pose"/>
+	<arg name="control_cmd_topic" default="control_signal"/>
+	<arg name="motor_signal_topic" default="motor_signal"/>
+	<arg name="course_frame" default="course"/>
+	<arg name="car_frame" default="car"/>
+	<arg name="initial_x" default="0.0"/>
+	<arg name="initial_y" default="1.5"/>
+	<arg name="initial_yaw" default="-1.57"/>
+	<arg name="car_id" default="000"/>
+
+	<group ns="Car_$(arg car_id)">
+		<node pkg="car_simulator" type="car_simulator" name="car_simulator" output="screen">
+			<param name = "current_pose_topic" value = "$(arg current_pose_topic)" />
+			<param name = "control_cmd_topic" value = "$(arg control_cmd_topic)" />
+			<param name = "motor_signal_topic" value = "$(arg motor_signal_topic)" />
+			<param name = "course_frame" value = "$(arg course_frame)" />
+			<param name = "car_frame" value = "$(arg car_frame)" />
+			<param name = "initial_x" value = "$(arg initial_x)" />
+			<param name = "initial_y" value = "$(arg initial_y)" />
+			<param name = "initial_yaw" value = "$(arg initial_yaw)" />
+		</node>
+	</group>
+</launch>

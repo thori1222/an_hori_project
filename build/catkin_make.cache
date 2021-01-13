@@ -1,0 +1,2 @@
+cacc/packages/cacc_communicator:cacc/packages/cacc_controller:cacc/packages/cacc_msgs:cacc/packages/common/cgmres_lib:cacc/packages/common/udp_connector_lib:car_simulator:controller_calc:custom_pkg:manual_controller:rosbag_player:vrpn_client_ros
+-DCATKIN_DEVEL_PREFIX=/home/thori/ccccc/devel -DCMAKE_INSTALL_PREFIX=/home/thori/ccccc/install -G Unix Makefiles

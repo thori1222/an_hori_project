@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find cacc_communicator)/launch/car_communicator_000_2.launch"/>
+  <include file="$(find cacc_communicator)/launch/car_communicator_001_2.launch"/>
+  <include file="$(find cacc_communicator)/launch/car_communicator_002_2.launch"/>
+  <include file="$(find cacc_communicator)/launch/car_communicator_003_2.launch"/>
+</launch>
+

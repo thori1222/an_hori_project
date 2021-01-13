@@ -1,0 +1,17 @@
+(cl:defpackage cacc_msgs-msg
+  (:use )
+  (:export
+   "<CACCCONTROLPACKET>"
+   "CACCCONTROLPACKET"
+   "<CACCMPCPARAM>"
+   "CACCMPCPARAM"
+   "<CACCMPCSTATE>"
+   "CACCMPCSTATE"
+   "<CACCSENSORPACKET>"
+   "CACCSENSORPACKET"
+   "<CACCSTATEPACKET>"
+   "CACCSTATEPACKET"
+   "<PRARXPARAM>"
+   "PRARXPARAM"
+  ))
+

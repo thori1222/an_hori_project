@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find controller_calc)/launch/controller_calc_all.launch"/>
+  <include file="$(find cacc_communicator)/launch/car_communicator_all.launch"/>
+  <include file="$(find cacc_communicator)/launch/cacc_communicator_only_2019.launch"/>
+  <include file="$(find cacc_controller)/launch/cacc_controller.launch"/>
+</launch>

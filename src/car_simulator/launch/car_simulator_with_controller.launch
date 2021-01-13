@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="initial_x" default="0.0"/>
+	<arg name="initial_y" default="1.5"/>
+	<arg name="initial_yaw" default="-1.57"/>
+	<arg name="car_id" default="000"/>
+	<arg name="speed_ref" default="1.0"/>
+	<arg name="Flag_speed_ref_update" default="false"/>
+	<arg name="Flag_cutin" default ="true"/>
+	<arg name="current_pose_topic_cutin" default ="/Car_002/pose"/>
+	<arg name="speed_mode" default = "0"/>
+	<arg name="output_csv_folder" default="/home/thori/log"/>
+	<arg name="Flag_csv_output" default="false"/>
+
+	<include file="$(find car_simulator)/launch/car_simulator_indiv.launch">
+	  <arg name = "initial_x" value = "$(arg initial_x)"/>
+	  <arg name = "initial_y" value = "$(arg initial_y)"/>
+	  <arg name = "initial_yaw" value = "$(arg initial_yaw)"/>
+	  <arg name = "car_id" value = "$(arg car_id)"/>
+	</include>
+
+	<include file="$(find controller_calc)/launch/controller_calc_indiv.launch">
+	  <arg name = "car_id" value = "$(arg car_id)"/>
+	  <arg name="speed_ref" value ="$(arg speed_ref)"/>
+	  <arg name="Flag_speed_ref_update" value = "$(arg Flag_speed_ref_update)"/>
+	  <arg name="Flag_cutin" value ="$(arg Flag_cutin)"/>
+	  <arg name="current_pose_topic_cutin" value ="$(arg current_pose_topic_cutin)"/>
+	  <arg name= "speed_mode" value = "$(arg speed_mode)"/>
+	  <arg name="output_csv_folder" value="$(arg output_csv_folder)"/>
+	  <arg name="Flag_csv_output" value="$(arg Flag_csv_output)"/>
+	</include>
+</launch>

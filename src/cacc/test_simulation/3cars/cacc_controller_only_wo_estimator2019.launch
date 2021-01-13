@@ -1,0 +1,60 @@
+<launch>
+  <arg name = "mode_str" default = "localization" />
+  <arg name = "number_of_car" default = "3" />
+  <arg name = "course_file" default = "/home/chinhyuntai/data_rc/Path_Info/Test_resampled_path2.csv" />
+  <arg name = "direction" default = "true" />
+  
+  <arg name = "using_sensor_flag" default = "false" />
+  <arg name = "cutin_flag" default = "false" />
+
+  <arg name = "flag_0" default = "true"/>
+  <arg name = "flag_1" default = "true"/>
+  <arg name = "flag_2" default = "true"/>
+  <arg name = "flag_3" default = "false"/>
+
+  <arg name = "id_0" default = "1010" />
+  <arg name = "manual_0" default = "true" />
+  <arg name = "destination_0" default = "10.211.55.4"/>
+  <arg name = "port_send_0" default="54750"/>
+  <arg name = "port_receive_0" default="54650"/>
+
+  <arg name = "id_1" default = "1011" />
+  <arg name = "manual_1" default = "false" />
+  <arg name = "destination_1" default = "10.211.55.4"/>
+  <arg name = "port_send_1" default="54751"/>
+  <arg name = "port_receive_1" default="54651"/>
+
+  <arg name = "id_2" default = "1012" />
+  <arg name = "manual_2" default = "false" />
+  <arg name = "destination_2" default = "10.211.55.4"/>
+  <arg name = "port_send_2" default="54752"/>
+  <arg name = "port_receive_2" default="54652"/>
+
+  <arg name = "id_3" default = "13" />
+  <arg name = "manual_3" default = "false" />
+  <arg name = "destination_3" default = "192.168.0.103"/>
+  <arg name = "port_send_3" default="54753"/>
+  <arg name = "port_receive_3" default="54653"/>
+
+  <arg name = "distance_radar_gain" default = "1.0" />
+
+  <include file="$(find cacc_controller)/launch/cacc_controller.launch">
+    <arg name = "mode_str" value = "$(arg mode_str)" />
+    <arg name = "course_file" value = "$(arg course_file)" />
+    <arg name = "direction" value = "$(arg direction)" />
+    <arg name = "number_of_car" value = "$(arg number_of_car)" />
+    <arg name = "id_0" value = "$(arg id_0)" /> 
+    <arg name = "id_1" value = "$(arg id_1)" />
+    <arg name = "id_2" value = "$(arg id_2)" />
+    <arg name = "id_3" value = "$(arg id_3)" />
+    <arg name = "manual_0" value = "$(arg manual_0)" />
+    <arg name = "manual_1" value = "$(arg manual_1)" />
+    <arg name = "manual_2" value = "$(arg manual_2)" />
+    <arg name = "manual_3" value = "$(arg manual_3)" />
+    <arg name = "using_sensor_flag" value = "$(arg using_sensor_flag)" />
+    <arg name = "cutin_flag" value = "$(arg cutin_flag)" />
+    <arg name = "distance_radar_gain" value = "$(arg distance_radar_gain)" />
+  </include>
+
+</launch>
+

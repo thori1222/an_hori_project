@@ -1,0 +1,37 @@
+<launch>
+  <arg name = "mode_str" default = "localization" />
+  <arg name = "number_of_car" default = "2" />
+  <arg name = "course_file" default = "$(find controller_calc)/Path_Info/Test_resampled_path2.csv" />
+  <arg name = "direction" default = "true" />
+  <arg name = "control_type" default = "CarFollowing" />
+  <arg name = "id_0" default = "1010" /> 
+  <arg name = "id_1" default = "1011" />
+  <arg name = "id_2" default = "1012" />
+  <arg name = "id_3" default = "1013" />
+  <arg name = "manual_0" default = "true" />
+  <arg name = "manual_1" default = "false" />
+  <arg name = "manual_2" default = "false" />
+  <arg name = "manual_3" default = "false" />
+  <arg name = "distance_radar_gain" default = "1.0" />
+
+  <group ns = "CACC_controller">
+    <node pkg = "cacc_controller" type = "state_estimator" name = "state_estimator" output="log">
+      <param name = "position_type_str" value = "$(arg mode_str)" />
+      <param name = "control_type" value = "$(arg control_type)" />
+      <param name = "course_file" value = "$(arg course_file)" />
+      <param name = "direction" value = "$(arg direction)" />
+      <param name = "number_of_car" value = "$(arg number_of_car)" />
+      <param name = "id_0" value = "$(arg id_0)" />
+      <param name = "id_1" value = "$(arg id_1)" />
+      <param name = "id_2" value = "$(arg id_2)" />
+      <param name = "id_3" value = "$(arg id_3)" />
+      <param name = "manual_0" value = "$(arg manual_0)" />
+      <param name = "manual_1" value = "$(arg manual_1)" />
+      <param name = "manual_2" value = "$(arg manual_2)" />
+      <param name = "manual_3" value = "$(arg manual_3)" />
+      <param name = "distance_radar_gain" value = "$(arg distance_radar_gain)" />
+    </node>
+  </group>
+
+</launch>
+

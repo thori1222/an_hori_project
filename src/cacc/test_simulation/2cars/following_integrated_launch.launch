@@ -1,0 +1,71 @@
+<launch>
+  <arg name = "mode_str" default = "localization" />
+  <arg name = "control_type" default = "CarFollowing" />
+  <arg name = "number_of_car" default = "2" />
+  <arg name = "course_file" default = "/home/chinhyuntai/NUMiniAutoCar/RC_car_ROS_MoCap/Calculating_PC/src/controller_calc/Path_Info/Test_resampled_path2.csv" />
+  <arg name = "direction" default = "true" />
+  
+  <arg name = "using_sensor_flag" default = "true" />
+  <arg name = "using_custom_topic_flag" default = "false" />
+  <arg name = "idx_0" default = "0" /> 
+  <arg name = "idx_1" default = "1" />
+  <arg name = "state_packet_leader" default = "CarFollowing_Car_0/state_packet" />
+  <arg name = "state_packet_follower" default = "CarFollowing_Car_1/state_packet" />
+
+  <arg name = "flag_0" default = "true"/>
+  <arg name = "flag_1" default = "true"/>
+
+  <arg name = "id_0" default = "1010" />
+  <arg name = "manual_0" default = "true" />
+  <arg name = "destination_0" default = "127.0.0.1"/>
+  <arg name = "port_send_0" default="54750"/>
+  <arg name = "port_receive_0" default="54650"/>
+
+  <arg name = "id_1" default = "1011" />
+  <arg name = "manual_1" default = "false" />
+  <arg name = "destination_1" default = "127.0.0.1"/>
+  <arg name = "port_send_1" default="54751"/>
+  <arg name = "port_receive_1" default="54651"/>
+
+  <arg name = "distance_radar_gain" default = "1.0" />
+
+  <include file="$(find cacc_communicator)/launch/controller_communicator.launch">
+    <arg name = "course_file" value = "$(arg course_file)" />
+    
+    <arg name = "flag_0" value = "$(arg flag_0)"/>
+    <arg name = "flag_1" value = "$(arg flag_1)"/>
+      
+    <arg name = "id_0" value = "$(arg id_0)" />
+    <arg name = "manual_0" value = "$(arg manual_0)" />
+    <arg name = "destination_0" value = "$(arg destination_0)"/>
+    <arg name = "port_send_0" value="$(arg port_send_0)"/>
+    <arg name = "port_receive_0" value="$(arg port_receive_0)"/>
+
+    <arg name = "id_1" value = "$(arg id_1)" />
+    <arg name = "manual_1" value = "$(arg manual_1)" />
+    <arg name = "destination_1" value = "$(arg destination_1)"/>
+    <arg name = "port_send_1" value="$(arg port_send_1)"/>
+    <arg name = "port_receive_1" value="$(arg port_receive_1)"/>
+  </include>
+
+  <include file="$(find cacc_controller)/launch/car_following.launch">
+    <arg name = "mode_str" value = "$(arg mode_str)" />
+    <arg name = "control_type" value = "$(arg control_type)" />
+    <arg name = "course_file" value = "$(arg course_file)" />
+    <arg name = "direction" value = "$(arg direction)" />
+    <arg name = "number_of_car" value = "$(arg number_of_car)" />
+    <arg name = "id_0" value = "$(arg id_0)" /> 
+    <arg name = "id_1" value = "$(arg id_1)" />
+    <arg name = "manual_0" value = "$(arg manual_0)" />
+    <arg name = "manual_1" value = "$(arg manual_1)" />
+    <arg name = "idx_0" value = "$(arg idx_0)" /> 
+    <arg name = "idx_1" value = "$(arg idx_1)" />
+    <arg name = "using_sensor_flag" value = "$(arg using_sensor_flag)" />
+    <arg name = "distance_radar_gain" value = "$(arg distance_radar_gain)" />
+    <arg name = "using_custom_topic_flag" value = "$(arg using_custom_topic_flag)" />
+    <arg name = "state_packet_leader" value = "$(arg state_packet_leader)" />
+    <arg name = "state_packet_follower" value = "$(arg state_packet_follower)" />
+  </include>
+
+</launch>
+

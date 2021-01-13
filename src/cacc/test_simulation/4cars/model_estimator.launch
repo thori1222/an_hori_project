@@ -1,0 +1,39 @@
+<launch>
+  <arg name = "id_0" default = "1010" /> 
+  <arg name = "id_1" default = "1011" />
+  <arg name = "id_2" default = "1012" /> 
+  <arg name = "id_3" default = "1013" />
+  <arg name = "idx_0" default = "1" /> 
+  <arg name = "idx_1" default = "2" />
+  <arg name = "using_sensor_flag" default = "true" />
+  <arg name = "state_packet_leader" default = "/CACC_controller/CACC_Car_1/state_packet" />
+  <arg name = "state_packet_follower" default = "/CACC_controller/CACC_Car_2/state_packet" />
+  <arg name = "param_sub_topic" default = "/CACC_controller/model_1/curr_param" />
+  <arg name = "param_pub_topic" default = "/CACC_controller/model_1/updated_param" />
+  <arg name = "maxNumberOfData" default = "1000" />
+  <arg name = "alpha" default = "0.01" />
+  <arg name = "beta" default = "0.01" />
+
+  <include file="$(find cacc_controller)/launch/model_estimator.launch">
+    <arg name = "id_0" value = "$(arg id_0)" />
+    <arg name = "id_1" value = "$(arg id_1)" />
+    <arg name = "id_2" value = "$(arg id_0)" />
+    <arg name = "id_3" value = "$(arg id_1)" />
+    <arg name = "idx_0" value = "$(arg idx_0)" />
+    <arg name = "idx_1" value = "$(arg idx_1)" />
+
+    <arg name = "using_sensor_flag" value = "$(arg using_sensor_flag)" />
+
+    <arg name = "state_packet_leader" value = "$(arg state_packet_leader)" />
+    <arg name = "state_packet_follower" value = "$(arg state_packet_follower)" />
+
+    <arg name = "param_sub_topic" value = "$(arg param_sub_topic)" />
+    <arg name = "param_pub_topic" value = "$(arg param_pub_topic)" />
+
+    <arg name = "maxNumberOfData" value = "$(arg maxNumberOfData)" />
+    <arg name = "alpha" value = "$(arg alpha)" />
+    <arg name = "beta" value = "$(arg beta)" />
+  </include>
+
+</launch>
+

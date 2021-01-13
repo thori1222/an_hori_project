@@ -1,0 +1,17 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~vel_ref" : \b [double] Reference speed in mps min: 0.0, default: 1.0, max: 20.0
+- \b "~ds" : \b [double] Ds min: 0.0, default: 0.5, max: 20.0
+- \b "~dmin" : \b [double] Dmin min: 0.0, default: 0.3, max: 20.0
+- \b "~umax" : \b [double] Umax min: 0.0, default: 1.0, max: 3.0
+- \b "~umin" : \b [double] Umin min: 0.0, default: 3.0, max: 6.0
+- \b "~q0" : \b [int] Q0 min: 0, default: 30, max: 100
+- \b "~q1" : \b [int] Q1 min: 0, default: 1, max: 100
+- \b "~q2" : \b [int] Q2 min: 0, default: 1, max: 100
+- \b "~r" : \b [int] R min: 0, default: 800, max: 2000
+- \b "~sf" : \b [int] Sf min: 0, default: 100, max: 1000
+- \b "~su" : \b [int] Su min: 0, default: 1000, max: 1000
+- \b "~sd" : \b [int] Sd min: 0, default: 1000, max: 1000
+

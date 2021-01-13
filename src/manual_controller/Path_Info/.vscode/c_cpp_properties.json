@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/thori/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/thori/catkin_ws/src/controller_calc/include/**",
+        "/home/thori/catkin_ws/src/rc_rmpc_cpu/include/**",
+        "/home/thori/catkin_ws/src/vrpn_client_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}

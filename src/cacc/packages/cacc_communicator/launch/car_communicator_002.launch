@@ -1,0 +1,43 @@
+<launch>
+  <arg name = "id" default = "1012" />
+  <arg name = "manual" default = "true" />
+  <arg name = "thw" default = "1.0" />
+  <arg name = "sensor2frontbumper" default = "0.15" />
+  <arg name = "sensor2rearbumper" default = "0.11" />
+
+  <arg name = "destination" default = "192.168.0.105" />
+  <arg name = "port_send" default = "54652" />
+  <arg name = "port_receive" default = "54752" /> 
+
+  <arg name = "twist_type" default = "TwistStamped" />
+  <arg name = "twist_cmd_topic" default = "/Car_002/speed_ref" />
+  <arg name = "accel_cmd_topic" default = "/acc_cmd002" />
+  
+  <arg name = "curr_twist_topic" default = "/Car_002/curr_speed" />
+  <arg name = "curr_pose_topic" default = "/vrpn_client_node/RigidBody004/pose" />
+
+
+  <group ns = "Car_$(arg id)">
+    <node pkg = "cacc_communicator" type = "car_sender" name = "car_sender">
+      <param name = "destination" value = "$(arg destination)" />
+      <param name = "port_send" value = "$(arg port_send)" />
+      <param name = "id" value = "$(arg id)" />
+      <param name = "manual" value = "$(arg manual)" />
+      <param name = "thw" value = "$(arg thw)" />
+      <param name = "sensor2frontbumper" value = "$(arg sensor2frontbumper)" />
+      <param name = "sensor2rearbumper" value = "$(arg sensor2rearbumper)" />
+      <param name = "curr_twist_topic" value = "$(arg curr_twist_topic)" />
+      <param name = "curr_pose_topic" value = "$(arg curr_pose_topic)" />
+      <param name = "twist_type" value = "$(arg twist_type)" />
+    </node>
+
+    <node pkg = "cacc_communicator" type = "car_receiver" name = "car_receiver">
+      <param name = "port_receive" value = "$(arg port_receive)" />
+      <param name = "id" value = "$(arg id)" />
+      <param name = "manual" value = "$(arg manual)" />
+      <param name = "twist_cmd_topic" value = "$(arg twist_cmd_topic)" />
+      <param name = "accel_cmd_topic" value = "$(arg accel_cmd_topic)" />
+    </node>
+  </group>
+</launch>
+

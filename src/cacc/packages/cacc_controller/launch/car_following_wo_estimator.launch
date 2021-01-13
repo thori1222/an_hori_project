@@ -1,0 +1,36 @@
+<launch>
+  <arg name = "id_0" default = "1010" /> 
+  <arg name = "id_1" default = "1011" />
+  <arg name = "id_2" default = "12" />
+  <arg name = "id_3" default = "13" />
+  <arg name = "idx_0" default = "0" /> 
+  <arg name = "idx_1" default = "1" />
+  <arg name = "using_sensor_flag" default = "false" />
+  <arg name = "using_custom_topic_flag" default = "false" />
+  <arg name = "state_packet_leader" default = "CarFollowing_Car_0/state_packet" />
+  <arg name = "state_packet_follower" default = "CarFollowing_Car_1/state_packet" />
+  <arg name="output_csv_folder" default="/home/thori/log/sim/range"/>
+	<arg name="Flag_csv_output" default="false"/>
+
+  <group ns = "Car_Following">
+    <node pkg = "cacc_controller" type = "following_controller" name = "following_controller" output="screen">
+      <param name = "idx_0" value = "$(arg idx_0)" />
+      <param name = "idx_1" value = "$(arg idx_1)" />
+      <param name = "id_0" value = "$(arg id_0)" />
+      <param name = "id_1" value = "$(arg id_1)" />
+      <param name = "id_2" value = "$(arg id_2)" />
+      <param name = "id_3" value = "$(arg id_3)" />
+      <param name = "using_sensor_flag" value = "$(arg using_sensor_flag)" />
+      <param name = "using_custom_topic_flag" value = "$(arg using_custom_topic_flag)" />
+      <param name = "state_packet_leader" value = "$(arg state_packet_leader)" />
+      <param name = "state_packet_follower" value = "$(arg state_packet_follower)" />
+      <param name = "output_csv_folder" value = "$(arg output_csv_folder)" />
+			<param name = "Flag_csv_output" value = "$(arg Flag_csv_output)" />
+
+      <remap from="/Car_Following/CarFollowing_Car_0/state_packet" to="/CACC_controller/CarFollowing_Car_0/state_packet"/>
+      <remap from="/Car_Following/CarFollowing_Car_1/state_packet" to="/CACC_controller/CarFollowing_Car_1/state_packet"/>
+    </node>
+  </group>
+
+</launch>
+

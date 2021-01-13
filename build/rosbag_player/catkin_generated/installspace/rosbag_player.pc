@@ -1,0 +1,8 @@
+prefix=/home/thori/ccccc/install
+
+Name: rosbag_player
+Description: Description of rosbag_player
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rosbag std_msgs geometry_msgs

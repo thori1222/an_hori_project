@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<launch>
+
+<arg name = "rviz_file" default = "/home/thori/cacc_test/rviz/rviz.rviz" />
+
+	<include file="$(find car_simulator)/launch/car_simulator_with_controller.launch">
+	  <arg name = "initial_x" value = "3.0"/>
+	  <arg name = "initial_y" value = "4.0"/>
+	  <arg name = "initial_yaw" value = "1.57"/>
+	  <arg name = "car_id" value = "000"/>
+	  <arg name="speed_ref" value="1.0"/>
+	  <arg name="Flag_speed_ref_update" value = "false"/>
+	  <arg name="Flag_cutin" value ="true"/>
+	  <arg name="current_pose_topic_cutin" value ="/Car_002/pose"/>
+	  <arg name="speed_mode" value = "1"/>
+      <arg name="output_csv_folder" value="/home/thori/log/sim/car000"/>
+	  <arg name="Flag_csv_output" value="false"/>
+	</include>
+	
+	<include file="$(find car_simulator)/launch/car_simulator_with_controller.launch">
+	  <arg name = "initial_x" value = "3.0"/>
+	  <arg name = "initial_y" value = "1.5"/>
+	  <arg name = "initial_yaw" value = "1.57"/>
+	  <arg name = "car_id" value = "001"/>
+	  <arg name="speed_ref" value="1.5"/>
+	  <arg name="Flag_speed_ref_update" value = "true"/>
+	  <arg name="Flag_cutin" value ="true"/>
+	  <arg name="current_pose_topic_cutin" value ="/Car_002/pose"/>
+	  <arg name="speed_mode" value = "0"/>
+      <arg name="output_csv_folder" value="/home/thori/log/sim/car001"/>
+	  <arg name="Flag_csv_output" value="false"/>
+	</include>
+
+	<!-- <include file="$(find car_simulator)/launch/car_simulator_with_controller2.launch">
+	  <arg name = "initial_x" value = "1.5"/>
+	  <arg name = "initial_y" value = "0.35"/>
+	  <arg name = "initial_yaw" value = "0.0"/>
+	  <arg name = "y_offset" value = "-0.35"/>
+	  <arg name = "car_id" value = "002"/>
+	  <arg name="speed_ref" value="1.0"/>
+	  <arg name="Flag_speed_ref_update" value = "false"/>
+	  <arg name="speed_mode" value = "0"/>
+      <arg name="output_csv_folder" value="/home/thori/log/sim/car002"/>
+	  <arg name="Flag_csv_output" value="true"/>
+	</include>
+
+	<include file="$(find car_simulator)/launch/car_simulator_with_controller.launch">
+	  <arg name = "initial_x" value = "0.0"/>
+	  <arg name = "initial_y" value = "1.5"/>
+	  <arg name = "initial_yaw" value = "-1.57"/>
+	  <arg name = "car_id" value = "003"/>
+	  <arg name="speed_ref" value="1.5"/>
+	  <arg name="Flag_speed_ref_update" value = "true"/>
+	  <arg name="Flag_cutin" value ="true"/>
+	  <arg name="current_pose_topic_cutin" value ="/Car_002/pose"/>
+	  <arg name="speed_mode" value = "0"/>
+      <arg name="output_csv_folder" value="/home/thori/log/sim/car003"/>
+	  <arg name="Flag_csv_output" value="true"/>
+	</include> -->
+	
+
+
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_file)"/>
+	
+</launch>

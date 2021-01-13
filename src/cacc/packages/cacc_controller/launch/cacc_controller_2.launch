@@ -1,0 +1,71 @@
+<launch>
+  <arg name = "mode_str" default = "localization" />
+  <arg name = "control_type" default = "CACC" />
+  <arg name = "course_file" default = "$(find controller_calc)/Path_Info/Test_resampled_path2.csv" />
+  <arg name = "direction" default = "false" />
+  <arg name = "number_of_car" default = "3" />
+  <arg name = "id_0" default = "1010" /> 
+  <arg name = "id_1" default = "1011" />
+  <arg name = "id_2" default = "1013" />
+  <arg name = "id_3" default = "1012" />
+  <arg name = "manual_0" default = "true" />
+  <arg name = "manual_1" default = "false" />
+  <arg name = "manual_2" default = "false" />
+  <!-- if cut_in, false -->
+  <arg name = "manual_3" default = "false" /> 
+  <arg name = "using_sensor_flag" default = "false" />
+  <arg name = "cutin_flag" default = "false" />
+  <arg name="output_csv_folder" default="/home/thori/log/rccar/range2"/>
+	<arg name="Flag_csv_output" default="false"/>
+  <arg name = "distance_radar_gain" default = "1.0" />
+  <arg name = "flag_cutin" default = "true" />
+
+  <group ns = "CACC_controller_2">
+    <node pkg = "cacc_controller" type = "state_estimator" name = "state_estimator">
+      <param name = "position_type_str" value = "$(arg mode_str)" />
+      <param name = "control_type" value = "$(arg control_type)" />
+      <param name = "course_file" value = "$(arg course_file)" />
+      <param name = "direction" value = "$(arg direction)" />
+      <param name = "number_of_car" value = "4" />
+      <param name = "id_0" value = "$(arg id_0)" />
+      <param name = "id_1" value = "$(arg id_1)" />
+      <param name = "id_2" value = "$(arg id_2)" />
+      <param name = "id_3" value = "$(arg id_3)" />
+      <param name = "manual_0" value = "$(arg manual_0)" />
+      <param name = "manual_1" value = "$(arg manual_1)" />
+      <param name = "manual_2" value = "$(arg manual_2)" />
+      <param name = "manual_3" value = "$(arg manual_3)" />
+      <param name = "distance_radar_gain" value = "$(arg distance_radar_gain)" />
+      <param name = "flag_cutin" value = "$(arg flag_cutin)" />
+
+      <remap from="/Car_0/cacc_sensor_packet" to="/Car_0_2/cacc_sensor_packet"/>
+      <remap from="/Car_1/cacc_sensor_packet" to="/Car_1_2/cacc_sensor_packet"/>
+      <remap from="/Car_2/cacc_sensor_packet" to="/Car_2_2/cacc_sensor_packet"/>
+      <remap from="/Car_3/cacc_sensor_packet" to="/Car_3_2/cacc_sensor_packet"/>
+    </node>
+
+    <node pkg = "cacc_controller" type = "platooning_cgmres" name = "platooning_cgmres">
+      <param name = "position_type_str" value = "$(arg mode_str)" />
+      <param name = "number_of_car" value = "$(arg number_of_car)" />
+      <param name = "id_0" value = "$(arg id_0)" />
+      <param name = "id_1" value = "$(arg id_1)" />
+      <param name = "id_2" value = "$(arg id_2)" />
+      <param name = "id_3" value = "$(arg id_3)" />
+      <param name = "manual_0" value = "$(arg manual_0)" />
+      <param name = "manual_1" value = "$(arg manual_1)" />
+      <param name = "manual_2" value = "$(arg manual_2)" />
+      <param name = "manual_3" value = "$(arg manual_3)" />
+      <param name = "using_sensor_flag" value = "$(arg using_sensor_flag)" />
+      <param name = "cutin_flag" value = "$(arg cutin_flag)" />
+      <param name = "output_csv_folder" value = "$(arg output_csv_folder)" />
+			<param name = "Flag_csv_output" value = "$(arg Flag_csv_output)" />
+
+      <remap from="/Car_0/cacc_control_packet" to="/Car_0_2/cacc_control_packet"/>
+      <remap from="/Car_1/cacc_control_packet" to="/Car_1_2/cacc_control_packet"/>
+      <remap from="/Car_2/cacc_control_packet" to="/Car_2_2/cacc_control_packet"/>
+      <remap from="/Car_3/cacc_control_packet" to="/Car_3_2/cacc_control_packet"/>
+    </node>
+  </group>
+
+</launch>
+

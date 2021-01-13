@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find controller_calc)/launch/controller_calc_indiv.launch">
+	  <arg name="car_id" value = "000"/>
+	  <arg name="current_pose_topic" value = "/vrpn_client_node/RigidBody001/pose" />
+	  <arg name="motor_signal_topic" value = "/motor_signal001" />
+	  <arg name="control_cmd_topic" value = "/control_signal001" />
+	  <arg name="speed_ref" value ="1.0"/>
+	  <arg name="Flag_speed_ref_update" value = "false"/>
+	  <arg name="speed_mode" value = "1"/>
+	  <arg name="output_csv_folder" value="/home/thori/log/rccar/car000"/>
+	  <arg name="Flag_csv_output" value="true"/>
+	  <arg name="Flag_cutin" value ="false"/>
+	  <arg name="y_offset" value="-0.05"/>
+	  <arg name="current_pose_topic_cutin" value ="/vrpn_client_node/RigidBody004/pose"/>
+	</include>
+
+	<include file="$(find manual_controller)/launch/controller_calc_manual.launch">
+	  <arg name="car_id" value = "002"/>
+	  <arg name="current_pose_topic" value = "/vrpn_client_node/RigidBody002/pose" />
+	  <arg name="motor_signal_topic" value = "/motor_signal002" />
+	  <arg name="control_cmd_topic" value = "/control_signal002" />
+	  <arg name="speed_ref" value ="1.0"/>
+	  <arg name="Flag_speed_ref_update" value = "false"/>
+	  <arg name="speed_mode" value = "1"/>
+	  <arg name="output_csv_folder" value="/home/thori/log/rccar/car001"/>
+	  <arg name="Flag_csv_output" value="true"/>
+	  <arg name="y_offset" value="-0.2"/>
+	</include>
+
+</launch>

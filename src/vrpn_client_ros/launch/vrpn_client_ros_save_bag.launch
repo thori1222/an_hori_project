@@ -1,0 +1,22 @@
+<launch>
+  <arg name="server" default="192.169.11.102"/>
+  <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+    <rosparam subst_value="true">
+      server: $(arg server)
+      #server: 239.255.42.99
+      port: 3883
+      frame_id: world
+      broadcast_tf: true
+      # Must either specify refresh frequency > 0.0, or a list of trackers to create
+      refresh_tracker_frequency: 1.0
+      #trackers:
+      #- FirstTracker
+      #- SecondTracker
+    </rosparam>
+  </node>
+	<node pkg="controller_calc" type="controller_calc" name="controller_calc" output="screen" />
+	<!--<node pkg="kalman_estimation" type="kalman_estimation" name="kalman_estimation" output="screen" /> -->
+ 
+<node pkg="rosbag" type="record" name="record" output="screen" args="-o /home/tony/ros_bag/Prefix_name -a"/>	
+
+</launch>

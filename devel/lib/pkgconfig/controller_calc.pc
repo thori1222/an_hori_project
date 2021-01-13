@@ -1,0 +1,8 @@
+prefix=/home/thori/ccccc/devel
+
+Name: controller_calc
+Description: Description of controller_calc
+Version: 0.0.0
+Cflags: -I/home/thori/ccccc/src/controller_calc/include
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+    
+	<include file="$(find manual_controller)/launch/controller_calc_manual.launch">
+	  <arg name="car_id" value = "002"/>
+	  <arg name="current_pose_topic" value = "/vrpn_client_node/RigidBody004/pose" />
+	  <arg name="motor_signal_topic" value = "/motor_signal" />
+	  <arg name="control_cmd_topic" value = "/control_signal" />
+	  <arg name="speed_ref" value ="1.0"/>
+	  <arg name="Flag_speed_ref_update" value = "false"/>
+	  <arg name="speed_mode" value = "1"/>
+	  <arg name="output_csv_folder" value="/home/thori/log/rccar/car002"/>
+	  <arg name="Flag_csv_output" value="true"/>
+	  <arg name="y_offset" value="-0.35"/>
+	</include>
+
+</launch>

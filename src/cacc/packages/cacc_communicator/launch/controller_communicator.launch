@@ -1,0 +1,84 @@
+<launch>
+  <arg name = "course_file" default = "course.txt" />
+  
+  <arg name = "flag_0" default = "false"/>
+  <arg name = "flag_1" default = "true"/>
+  <arg name = "flag_2" default = "false"/>
+  <arg name = "flag_3" default = "false"/>
+
+  <arg name = "id_0" default = "10" />
+  <arg name = "manual_0" default = "false" />
+  <arg name = "destination_0" default = "192.168.0.100"/>
+  <arg name = "port_send_0" default="54750"/>
+  <arg name = "port_receive_0" default="54650"/>
+
+  <arg name = "id_1" default = "11" />
+  <arg name = "manual_1" default = "false" />
+  <arg name = "destination_1" default = "192.168.0.101"/>
+  <arg name = "port_send_1" default="54751"/>
+  <arg name = "port_receive_1" default="54651"/>
+
+  <arg name = "id_2" default = "12" />
+  <arg name = "manual_2" default = "false" />
+  <arg name = "destination_2" default = "192.168.0.102"/>
+  <arg name = "port_send_2" default="54752"/>
+  <arg name = "port_receive_2" default="54652"/>
+
+  <arg name = "id_3" default = "13" />
+  <arg name = "manual_3" default = "false" />
+  <arg name = "destination_3" default = "192.168.0.103"/>
+  <arg name = "port_send_3" default="54753"/>
+  <arg name = "port_receive_3" default="54653"/>
+
+  <!-- Car 0 -->
+  <group if = "$(arg flag_0)" ns = "Car_0">
+    <include file="$(find cacc_communicator)/launch/controller_communicator_indiv.launch">
+      <arg name="id" value="$(arg id_0)"/> 
+      <arg name="manual" value="$(arg manual_0)"/>
+      <arg name="destination" value="$(arg destination_0)"/>
+      <arg name="port_send" value="$(arg port_send_0)"/>
+      <arg name="port_receive" value="$(arg port_receive_0)"/>
+      <arg name="course_file" value="$(arg course_file)"/>
+
+    </include>
+  </group>
+
+  <!-- Car 1 -->
+  <group if = "$(arg flag_1)" ns = "Car_1">
+    <include file="$(find cacc_communicator)/launch/controller_communicator_indiv.launch">
+      <arg name="id" value="$(arg id_1)"/> 
+      <arg name="manual" value="$(arg manual_1)"/>
+      <arg name="destination" value="$(arg destination_1)"/>
+      <arg name="port_send" value="$(arg port_send_1)"/>
+      <arg name="port_receive" value="$(arg port_receive_1)"/>
+      <arg name="course_file" value="$(arg course_file)"/>
+    </include>
+  </group>
+
+  <!-- Car 2 -->
+  <group if = "$(arg flag_2)" ns = "Car_2">
+    <include file="$(find cacc_communicator)/launch/controller_communicator_indiv.launch">
+      <arg name="id" value="$(arg id_2)"/> 
+      <arg name="manual" value="$(arg manual_2)"/>
+      <arg name="destination" value="$(arg destination_2)"/>
+      <arg name="port_send" value="$(arg port_send_2)"/>
+      <arg name="port_receive" value="$(arg port_receive_2)"/>
+      <arg name="course_file" value="$(arg course_file)"/>
+    </include>
+  </group>
+
+  <!-- Car 3 -->
+  <group if = "$(arg flag_3)" ns = "Car_3">
+    <include file="$(find cacc_communicator)/launch/controller_communicator_indiv.launch">
+      <arg name="id" value="$(arg id_3)"/> 
+      <arg name="manual" value="$(arg manual_3)"/>
+      <arg name="destination" value="$(arg destination_3)"/>
+      <arg name="port_send" value="$(arg port_send_3)"/>
+      <arg name="port_receive" value="$(arg port_receive_3)"/>
+      <arg name="course_file" value="$(arg course_file)"/>
+    </include>
+  </group>
+
+
+</launch>
+

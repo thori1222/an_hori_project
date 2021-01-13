@@ -1,0 +1,12 @@
+<launch>
+  <arg name = "filename" default="/home/chinhyuntai/Desktop/rc_test.bag"/>
+  <arg name = "topic_to_read" default="/vrpn_client_node/RigidBody002/pose"/>
+  <arg name = "topic_to_publish" default="/pose002"/>
+
+  <node pkg = "rosbag_player" type = "rosbag_player" name = "rosbag_player002" output ="screen">
+    <param name = "filename" value = "$(arg filename)"/>
+    <param name = "topic_to_read" value = "$(arg topic_to_read)"/>
+    <param name = "topic_to_publish" value = "$(arg topic_to_publish)"/>
+  </node>
+</launch>
+

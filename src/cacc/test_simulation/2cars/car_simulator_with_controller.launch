@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="initial_x" default="0.0"/>
+	<arg name="initial_y" default="1.5"/>
+	<arg name="initial_yaw" default="-1.57"/>
+	<arg name="car_id" default="000"/>
+	<arg name="Flag_speed_ref_update" default="false"/>
+
+	<include file="car_simulator_indiv.launch">
+	  <arg name = "initial_x" value = "$(arg initial_x)"/>
+	  <arg name = "initial_y" value = "$(arg initial_y)"/>
+	  <arg name = "initial_yaw" value = "$(arg initial_yaw)"/>
+	  <arg name = "car_id" value = "$(arg car_id)"/>
+	</include>
+
+	<include file="controller_calc_indiv.launch">
+	  <arg name = "car_id" value = "$(arg car_id)"/>
+	  <arg name="Flag_speed_ref_update" value = "$(arg Flag_speed_ref_update)"/>
+	</include>
+</launch>

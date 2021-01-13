@@ -1,0 +1,18 @@
+\subsubsection usage Usage
+\verbatim
+<node name="mpc_parameter_configuration" pkg="cacc_controller" type="mpc_parameter_configuration">
+  <param name="vel_ref" type="double" value="1.0" />
+  <param name="ds" type="double" value="0.5" />
+  <param name="dmin" type="double" value="0.3" />
+  <param name="umax" type="double" value="1.0" />
+  <param name="umin" type="double" value="3.0" />
+  <param name="q0" type="int" value="30" />
+  <param name="q1" type="int" value="1" />
+  <param name="q2" type="int" value="1" />
+  <param name="r" type="int" value="800" />
+  <param name="sf" type="int" value="100" />
+  <param name="su" type="int" value="1000" />
+  <param name="sd" type="int" value="1000" />
+</node>
+\endverbatim
+

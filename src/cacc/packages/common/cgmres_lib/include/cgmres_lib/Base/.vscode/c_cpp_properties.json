@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/thori/cacc_test/devel/include/**",
+                "/home/thori/catkin_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/thori/cacc_test/src/cacc/packages/cacc_communicator/include/**",
+                "/home/thori/cacc_test/src/cacc/packages/cacc_controller/include/**",
+                "/home/thori/cacc_test/src/car_simulator/include/**",
+                "/home/thori/cacc_test/src/cacc/packages/common/cgmres_lib/include/**",
+                "/home/thori/cacc_test/src/controller_calc/include/**",
+                "/home/thori/catkin_ws/src/rc_rmpc_cpu/include/**",
+                "/home/thori/cacc_test/src/cacc/packages/common/udp_connector_lib/include/**",
+                "/home/thori/cacc_test/src/vrpn_client_ros/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}

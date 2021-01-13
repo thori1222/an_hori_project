@@ -1,0 +1,8 @@
+prefix=/home/thori/ccccc/devel
+
+Name: cacc_communicator
+Description: Description of cacc_communicator
+Version: 0.0.0
+Cflags: -I/home/thori/ccccc/devel/include -I/home/thori/ccccc/src/cacc/packages/cacc_communicator/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime roscpp std_msgs nav_msgs geometry_msgs cacc_msgs tf message_filters udp_connector_lib

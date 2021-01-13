@@ -1,0 +1,23 @@
+<launch>
+
+  <arg name = "id" default = "10" />
+  <arg name = "manual" default = "false" />
+  <arg name = "destination" default = "192.168.0.1" />
+  <arg name = "port_send" default = "54750" />
+  <arg name = "port_receive" default = "54650" /> 
+  <arg name = "course_file" default = "course.txt" />
+  
+  <node pkg = "cacc_communicator" type = "controller_sender" name = "controller_sender">
+    <param name = "id" value = "$(arg id)" />
+    <param name = "manual" value = "$(arg manual)" />
+    <param name = "destination" value = "$(arg destination)" />
+    <param name = "port_send" value = "$(arg port_send)" />
+  </node>
+
+  <node pkg = "cacc_communicator" type = "controller_receiver" name = "controller_receiver">
+    <param name = "id" value = "$(arg id)" />
+    <param name = "port_receive" value = "$(arg port_receive)" />
+    <param name = "course_file" value = "$(arg course_file)" />
+  </node>
+</launch>
+

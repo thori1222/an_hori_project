@@ -1,0 +1,5 @@
+<launch>
+  <include file="car_communicator_000.launch"/>
+  <include file="car_communicator_001.launch"/>
+</launch>
+

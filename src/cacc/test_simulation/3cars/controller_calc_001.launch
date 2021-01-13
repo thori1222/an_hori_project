@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="imu_topic" default="imu/data"/>
+	<arg name="current_pose_topic" default="pose"/>
+	<arg name="motor_signal_topic" default="motor_signal"/>
+	<arg name="control_cmd_topic" default="control_signal"/>
+	<arg name="filtered_imu_topic" default="imu/data_filtered"/>
+	<arg name="curr_speed_topic" default="curr_speed"/>
+	<arg name="speed_ref_topic" default="speed_ref"/>
+	<arg name="path_ref_topic" default="path_ref"/>
+	<arg name="path_car_topic" default="path_car"/>
+	<arg name="path_file" default="/home/chinhyuntai/data_rc/Path_Info/Test2.csv"/>
+	<arg name="path_to_write_path" default="/home/suzlab/data_exp/Car1/Path_Info/Test_resampled_path2.csv"/>
+	<arg name="output_lane_for_debug" default="/home/suzlab/data_exp/Car1/Test_detailed_path2.csv"/>
+	<arg name="output_csv_folder" default="/home/suzlab/data_exp/Car1"/>
+	<arg name="Flag_csv_output" default="false"/>
+	<arg name="Flag_control_start" default="true"/>
+	<arg name="Flag_speed_ref_update" default="false"/>
+	<arg name="speed_ref" default="1.0"/>
+	<arg name="THW" default="0.2"/>
+	<arg name="car_id" default="001"/>
+
+	<group ns="Car_$(arg car_id)">
+		<node pkg="controller_calc" type="controller_calc" name="controller_calc" output="screen">
+			<param name = "imu_topic" value = "$(arg imu_topic)" />
+			<param name = "current_pose_topic" value = "$(arg current_pose_topic)" />
+			<param name = "motor_signal_topic" value = "$(arg motor_signal_topic)" />
+			<param name = "control_cmd_topic" value = "$(arg control_cmd_topic)" />
+			<param name = "filtered_imu_topic" value = "$(arg filtered_imu_topic)" />
+			<param name = "curr_speed_topic" value = "$(arg curr_speed_topic)" />
+			<param name = "speed_ref_topic" value = "$(arg speed_ref_topic)" />
+			<param name = "path_ref_topic" value = "$(arg path_ref_topic)" />
+			<param name = "path_car_topic" value = "$(arg path_car_topic)" />
+			<param name = "path_file" value = "$(arg path_file)" />
+			<param name = "path_to_write_path" value = "$(arg path_to_write_path)" />
+			<param name = "output_lane_for_debug" value = "$(arg output_lane_for_debug)" />
+			<param name = "output_csv_folder" value = "$(arg output_csv_folder)" />
+			<param name = "Flag_csv_output" value = "$(arg Flag_csv_output)" />
+			<param name = "Flag_control_start" value = "$(arg Flag_control_start)" />
+			<param name = "Flag_speed_ref_update" value = "$(arg Flag_speed_ref_update)" />
+			<param name = "speed_ref" value = "$(arg speed_ref)" />
+			<param name = "THW" value = "$(arg THW)" />
+		</node>
+	</group>
+</launch>

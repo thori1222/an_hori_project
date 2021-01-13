@@ -1,0 +1,8 @@
+prefix=/home/thori/ccccc/install
+
+Name: udp_connector_lib
+Description: Description of udp_connector_lib
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -ludp_connector_lib
+Requires: roscpp

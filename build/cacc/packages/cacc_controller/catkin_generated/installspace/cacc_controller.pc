@@ -1,0 +1,8 @@
+prefix=/home/thori/ccccc/install
+
+Name: cacc_controller
+Description: Description of cacc_controller
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp cgmres_lib cacc_msgs
